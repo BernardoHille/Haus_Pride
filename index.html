@@ -1,7 +1,7 @@
 <html>
   <head>
 	<title>Experiência de Realidade Aumentada Pride</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1" />
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -173,7 +173,7 @@
     </div>
 	-->
 	<div id="scanning-overlay" class="hidden"><img src="pride_scan_frame.svg" id="scan_svg"></div>
-    <a-scene mindar-image="imageTargetSrc: pride_targets.mind; filterMinCF:0.001; filterBeta: 0.001; warmupTolerance: 5; missTolerance: 5; uiScanning: #scanning-overlay;" device-orientation-permission-ui="enabled: true" xr-mode-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: pride_targets.mind; filterMinCF:0.001; filterBeta: 0.001; warmupTolerance: 5; missTolerance: 5; uiScanning: #scanning-overlay;" device-orientation-permission-ui="enabled: false" xr-mode-ui="enabled: true">
 		<a-assets>
 			<video id="video" src="Pride_editado.mp4" autoplay loop muted crossorigin="anonymous" playsinline></video>
 		</a-assets>
