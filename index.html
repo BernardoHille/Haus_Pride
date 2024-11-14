@@ -1,26 +1,180 @@
 <html>
   <head>
+	<title>Experiência de Realidade Aumentada Pride</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+	const sceneEl = document.querySelector('a-scene');
+	let arSystem;
+	sceneEl.addEventListener('loaded', function () {
+	  arSystem = sceneEl.systems["mindar-image-system"];
+	});
+	const exampleTarget = document.querySelector('#example-target');
+	const examplePlane = document.querySelector('#example-plane');
+	const startButton = document.querySelector("#example-start-button");
+	const stopButton = document.querySelector("#example-stop-button");
+	const pauseButton = document.querySelector("#example-pause-button");
+	const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
+	const unpauseButton = document.querySelector("#example-unpause-button");
+	const video = document.getElementById('video'); // Constante de vídeo
+	const scan_overlay = document.getElementById('scan_svg'); // Constante do scan overlay
+	let lostTimeout;
+	
+	/*
+	***
+	Abaixo temos alguns scripts voltados a debug, eles estão linkados com botões dentro do <body>.
+	Estes botões são Start, Pause, Pause (Keep Video), Unpause e Stop.
+	Start é ligado a função arSystem.start() e só funciona quando autostart do a-scene é autostart=False | Pause para toda a cena | Pause (keep video) pausa a cena potrém deixa o vídeo rodando
+	Unpause desliga todas as funcoes de pause | Stop para todo o sistema de ARSystem e só volta ao clicar Start novamente
+	***
+
+	stopButton.addEventListener('click', () => {
+	  arSystem.stop(); // stop AR 
+	});
+	pauseButton.addEventListener('click', () => {
+	  arSystem.pause(); // pause AR, pause video
+	});
+	pauseKeepVideoButton.addEventListener('click', () => {
+	  arSystem.pause(true); // pause AR, keep video
+	});
+	unpauseButton.addEventListener('click', () => {
+	  arSystem.unpause(); // unpause AR and video
+	});
+	
+	*/
+
+
+	// Evento arReady acionado quando pronto
+	sceneEl.addEventListener("arReady", (event) => {
+	  	console.log("Sistema de Realidade Aumentada iniciado corretamente")
+	});
+	// Evento arError acionado quando algo deu errado. Principalmente problema de compatibilidade do navegador
+	sceneEl.addEventListener("arError", (event) => {
+	  	console.log("Falha ao iniciar Sistema de Realidade Aumentada")
+	});
+	// detectar Target encontrado
+	exampleTarget.addEventListener("targetFound", event => {
+	  console.log("Target encontrado");
+	  video.play();
+	  console.log("Video Play");
+	  video.muted = false;
+	  console.log("Video Desmutado")
+	  scan_overlay.style.display = 'none'; // Quando o target é encontrado o overlay é escondido
+	  console.log("scan overlay none")
+	  clearTimeout(lostTimeout);
+	  console.log("Timeout cancelado")
+	});
+	// detectar Target perdido
+	exampleTarget.addEventListener("targetLost", event => {
+	  console.log("Target perdido");
+	  video.pause();
+	  console.log("Video Pause");
+	  video.muted = true;
+	  console.log("Video Mutado")
+	  scan_overlay.style.display = 'block'; // Quando o target é encontrado o overlay aparece novamente
+	  console.log("scan overlay block")
+	  lostTimeout = setTimeout(restartVideo, 10000);
+	  console.log("Timeout iniciado");
+	});
+
+	function restartVideo() {
+	  video.currentTime = 0;
+	  console.log("Video reiniciado")
+	}
+
+	/*
+	***
+	Evento de click no plano de Realidade Aumentada, não utilizado no atual projeto e não testado
+	***
+
+	// detectar click event
+	examplePlane.addEventListener("click", event => {
+	  console.log("plane click");
+	});
+	
+	*/
+
+
+      });
+    </script>
+	<style>
+		#overlay {
+		  position: fixed; /* Sit on top of the page content */
+		  display: block; /* Hidden by default */
+		  width: 100%; /* Full width (cover the whole page) */
+		  height: 100%; /* Full height (cover the whole page) */
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+		  cursor: pointer; /* Add a pointer on hover */
+		} 
+		#text{
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  font-size: 50px;
+		  color: white;
+		  transform: translate(-50%,-50%);
+		  -ms-transform: translate(-50%,-50%);
+		}
+		#logo{
+		  position: fixed;       /* Deixa a imagem fixa na tela */
+		  width: 50%;            /* Tamanho da imagem */
+		  bottom: 10%;             /* Alinha a imagem na parte inferior */
+		  left: 50%;             /* Centraliza horizontalmente */
+		  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
+		  max-width: 300px;
+		}
+		#scan_svg{
+		  position: fixed;       /* Fixa a imagem na tela */
+		  top: 35%;              /* Posiciona a imagem no centro vertical */
+		  left: 50%;             /* Posiciona a imagem no centro horizontal */
+		  transform: translate(-50%, -50%); /* Ajusta para centralizar totalmente */
+		  width:70%;
+		  max-width: 500px;
+		}
+		#acessar_site{
+		  position: fixed;       /* Deixa a imagem fixa na tela */
+		  width: 80%;            /* Tamanho da imagem */
+		  bottom: 25%;           /* Alinha a imagem na parte inferior */
+		  left: 50%;             /* Centraliza horizontalmente */
+		  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
+		  z-index: 1000;
+		  max-width: 300px;
+		}
+	</style>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: targets1_1.mind; filterMinCF:0.001; filterBeta: 0.001; warmupTolerance: 5; missTolerance: 5;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets>
-        <video id="video" src="rickroll.mp4" autoplay loop muted crossorigin="anonymous" playsinline></video>
-        </a-assets>
+	<!--
+	***
+	Div dos botões linkados a scripts de debug
+	***
+
+    <div style="position: absolute; z-index: 1000">
+      <button id="example-start-button">Start</button>
+      <button id="example-pause-button">Pause</button>
+      <button id="example-pause-keep-video-button">Pause (keep video)</button>
+      <button id="example-unpause-button">UnPause</button>
+      <button id="example-stop-button">Stop</button>
+    </div>
+	-->
+	<div id="scanning-overlay" class="hidden"><img src="aeon_scan_frame.svg" id="scan_svg"></div>
+    <a-scene mindar-image="imageTargetSrc: aeon_esquerda_qr_targets.mind; filterMinCF:0.001; filterBeta: 0.001; warmupTolerance: 5; missTolerance: 5; uiScanning: #scanning-overlay;" device-orientation-permission-ui="enabled: false" xr-mode-ui="enabled: false">
+		<a-assets>
+			<video id="video" src="rickroll.mp4" autoplay loop muted crossorigin="anonymous" playsinline></video>
+		</a-assets>
+		<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-video src="#video" width="1" height="1" position="0 0 0" rotation="0 0 0"></a-video> <!-- Editar tamanho, escala e rotacao do texto! -->
-      </a-entity>
+		<a-entity mindar-image-target="targetIndex: 0" id="example-target">
+		  <a-video src="#video" width="1" height="1" position="0 0 0" rotation="0 0 0"></a-video> <!-- Editar tamanho, escala e rotacao do texto! -->
+		</a-entity>
     </a-scene>
-    
-    <script>
-      const video = document.getElementById('video');
-      video.muted = true; // Garante que o vídeo esteja silenciado
-      video.play(); // Tenta iniciar o vídeo automaticamente
-    </script>
-  </body>
+	<div id="overlay"><img src="aeon_branco.svg" id="logo"></div>
+	<a href="https://www.aeonvr.com.br/"><img src="T_acessarSite.svg" id="acessar_site"></a>
+  </body>
 </html>
