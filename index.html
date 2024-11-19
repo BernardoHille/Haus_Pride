@@ -21,6 +21,7 @@
 	const unpauseButton = document.querySelector("#example-unpause-button");
 	const video = document.getElementById('video'); // Constante de vídeo
 	const scan_overlay = document.getElementById('scan_svg'); // Constante do scan overlay
+	const logo = document.getElementById('scan_svg');
 	let lostTimeout;
 	
 	/*
@@ -85,9 +86,8 @@
 	  console.log("Video reiniciado")
 	}
 
-	// detectar click video
-	video.addEventListener("click", event => {
-	console.log("clicando no video");
+	exampleTarget.addEventListener("click", event => {
+	  console.log("Target click");
 	});
 
 	/*
@@ -96,7 +96,7 @@
 	***
 
 	// detectar click event
-	videoClick.addEventListener("click", event => {
+	examplePlane.addEventListener("click", event => {
 	  console.log("plane click");
 	});
 	
