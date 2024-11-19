@@ -117,7 +117,7 @@
 		  left: 0;
 		  right: 0;
 		  bottom: 0;
-		  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+		  z-index: 99; /* Specify a stack order in case you're using a different order for other elements */
 		  cursor: pointer; /* Add a pointer on hover */
 		} 
 		#text{
@@ -166,6 +166,7 @@
 	</style>
   </head>
   <body>
+	<div id="overlay">
 	<!--
 	***
 	Div dos botões linkados a scripts de debug
@@ -193,5 +194,6 @@
 	<div id="overlay"><img src="logo_pride_branca.svg" id="logo"></div>
 	<a href="https://construtorapride.com.br/empreendimentos/palazzo"><img src="T_acessarSite.svg" id="acessar_site"></a>
 	<div id="overlay"><a href="https://www.aeonvr.com.br/"><img src="feito_por_aeon.svg" id="feito_por_aeon"></a></div>
+	</div>
   </body>
 </html>
