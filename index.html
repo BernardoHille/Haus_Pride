@@ -88,6 +88,7 @@
 
 
 	reproduzirVids.addEventListener("click", event => {
+	  video.pause();
 	  console.log("reproduzirVids click");
 	});
 
@@ -164,8 +165,7 @@
 		}
 		#Reproduzir{
 		  position: fixed;       /* Deixa a imagem fixa na tela */
-		  width: 80%;            /* Tamanho da imagem */
-		  top: 10%;           /* Alinha a imagem na parte inferior */
+		  width: 80%;            /* Tamanho da imagem */           /* Alinha a imagem na parte inferior */
 		  left: 50%;             /* Centraliza horizontalmente */
 		  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
 		  z-index: 1000;
