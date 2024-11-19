@@ -12,6 +12,7 @@
 	sceneEl.addEventListener('loaded', function () {
 	  arSystem = sceneEl.systems["mindar-image-system"];
 	});
+	const reproduzirVids = document.querySelector('#Reproduzir');
 	const exampleTarget = document.querySelector('#example-target');
 	const examplePlane = document.querySelector('#example-plane');
 	const startButton = document.querySelector("#example-start-button");
@@ -84,6 +85,11 @@
 	  video.currentTime = 0;
 	  console.log("Video reiniciado")
 	}
+
+
+	reproduzirVids.addEventListener("click", event => {
+	  console.log("reproduzirVids click");
+	});
 
 	/*
 	***
@@ -186,5 +192,6 @@
 	<div id="overlay"><img src="logo_pride_branca.svg" id="logo"></div>
 	<a href="https://construtorapride.com.br/empreendimentos/palazzo"><img src="T_acessarSite.svg" id="acessar_site"></a>
 	<div id="overlay"><a href="https://www.aeonvr.com.br/"><img src="feito_por_aeon.svg" id="feito_por_aeon"></a></div>
+	<button id="Reproduzir">Reproduzir</button>
   </body>
 </html>
