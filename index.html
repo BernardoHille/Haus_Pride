@@ -88,8 +88,13 @@
 
 
 	reproduzirVidsOverlay.addEventListener("click", event => {
-	  video.pause();
-	  console.log("reproduzirVids click");
+		if (video.paused) {
+    		video.play();
+			console.log("Video Play");
+    	} else {
+    	   video.pause();
+		   console.log("Video Pause");
+    	};
 	});
 
 	/*
