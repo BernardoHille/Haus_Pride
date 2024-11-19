@@ -21,7 +21,6 @@
 	const unpauseButton = document.querySelector("#example-unpause-button");
 	const video = document.getElementById('video'); // Constante de vídeo
 	const scan_overlay = document.getElementById('scan_svg'); // Constante do scan overlay
-	const logo = document.getElementById('scan_svg');
 	let lostTimeout;
 	
 	/*
@@ -85,14 +84,6 @@
 	  video.currentTime = 0;
 	  console.log("Video reiniciado")
 	}
-
-	exampleTarget.addEventListener("click", event => {
-	  console.log("Target click");
-	});
-
-	examplePlane.addEventListener("click", event => {
-	  console.log("Plane click");
-	});
 
 	/*
 	***
@@ -165,9 +156,6 @@
 		  z-index: 1000;
 		  max-width: 180px;
 		}
-		#example-target{
-			z-index: 999999;
-		}
 	</style>
   </head>
   <body>
@@ -192,7 +180,7 @@
 		<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
 		<a-entity mindar-image-target="targetIndex: 0" id="example-target">
-		  <a-plane src="#video" id="example-plane" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-plane> <!-- Editar tamanho, escala e rotacao do texto! -->
+		  <a-video src="#video" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-video> <!-- Editar tamanho, escala e rotacao do texto! -->
 		</a-entity>
     </a-scene>
 	<div id="overlay"><img src="logo_pride_branca.svg" id="logo"></div>
