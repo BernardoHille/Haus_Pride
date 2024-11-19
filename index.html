@@ -12,7 +12,7 @@
 	sceneEl.addEventListener('loaded', function () {
 	  arSystem = sceneEl.systems["mindar-image-system"];
 	});
-	const reproduzirVids = document.querySelector('#Reproduzir');
+	const reproduzirVidsOverlay = document.querySelector('#overlay');
 	const exampleTarget = document.querySelector('#example-target');
 	const examplePlane = document.querySelector('#example-plane');
 	const startButton = document.querySelector("#example-start-button");
@@ -87,7 +87,7 @@
 	}
 
 
-	reproduzirVids.addEventListener("click", event => {
+	reproduzirVidsOverlay.addEventListener("click", event => {
 	  video.pause();
 	  console.log("reproduzirVids click");
 	});
@@ -163,15 +163,6 @@
 		  z-index: 1000;
 		  max-width: 180px;
 		}
-		#Reproduzir{
-		  position: fixed;       /* Deixa a imagem fixa na tela */
-		  top: 5%;
-		  width: 80%;            /* Tamanho da imagem */           /* Alinha a imagem na parte inferior */
-		  left: 50%;             /* Centraliza horizontalmente */
-		  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
-		  z-index: 1000;
-		  max-width: 300px;
-		}
 	</style>
   </head>
   <body>
@@ -202,6 +193,5 @@
 	<div id="overlay"><img src="logo_pride_branca.svg" id="logo"></div>
 	<a href="https://construtorapride.com.br/empreendimentos/palazzo"><img src="T_acessarSite.svg" id="acessar_site"></a>
 	<div id="overlay"><a href="https://www.aeonvr.com.br/"><img src="feito_por_aeon.svg" id="feito_por_aeon"></a></div>
-	<img src="icons8-play-dentro-de-um-círculo-100.png" id="Reproduzir">
   </body>
 </html>
