@@ -88,6 +88,33 @@
       width: 90%;
       max-width: 500px;
     }
+
+	#acessar_site{
+	  position: fixed;       /* Deixa a imagem fixa na tela */
+	  width: 80%;            /* Tamanho da imagem */
+	  bottom: 30%;           /* Alinha a imagem na parte inferior */
+	  left: 50%;             /* Centraliza horizontalmente */
+	  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
+	  z-index: 1000;
+	  max-width: 300px;
+	}
+	#feito_por_aeon{
+	  position: fixed;       /* Deixa a imagem fixa na tela */
+	  width: 100%;            /* Tamanho da imagem */
+	  bottom: 1%;           /* Alinha a imagem na parte inferior */
+	  right:5%;            /* Centraliza horizontalmente */
+	  /* transform: translateX(-50%); Ajusta para centralizar totalmente */
+	  z-index: 1000;
+	  max-width: 180px;
+	}
+	#logo{
+	  position: fixed;       /* Deixa a imagem fixa na tela */
+	  width: 50%;            /* Tamanho da imagem */
+	  bottom: 15%;             /* Alinha a imagem na parte inferior */
+	  left: 50%;             /* Centraliza horizontalmente */
+	  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
+	  max-width: 300px;
+	}
   </style>
 </head>
 <body>
@@ -106,5 +133,8 @@
       <a-video src="#video" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-video>
     </a-entity>
   </a-scene>
+  <div id="overlay"><img src="logo_pride_branca.svg" id="logo"></div>
+  <a href="https://construtorapride.com.br/empreendimentos/palazzo"><img src="T_acessarSite.svg" id="acessar_site"></a>
+  <div id="overlay"><a href="https://www.aeonvr.com.br/"><img src="feito_por_aeon.svg" id="feito_por_aeon"></a></div>
 </body>
 </html>
