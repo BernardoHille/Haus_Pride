@@ -90,6 +90,10 @@
 	  console.log("Target click");
 	});
 
+	examplePlane.addEventListener("click", event => {
+	  console.log("Plane click");
+	});
+
 	/*
 	***
 	Evento de click no plano de Realidade Aumentada, não utilizado no atual projeto e não testado
@@ -188,7 +192,7 @@
 		<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
 		<a-entity mindar-image-target="targetIndex: 0" id="example-target">
-		  <a-video src="#video" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-video> <!-- Editar tamanho, escala e rotacao do texto! -->
+		  <a-plane src="#video" id="example-plane" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-plane> <!-- Editar tamanho, escala e rotacao do texto! -->
 		</a-entity>
     </a-scene>
 	<div id="overlay"><img src="logo_pride_branca.svg" id="logo"></div>
