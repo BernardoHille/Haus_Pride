@@ -91,13 +91,13 @@
 	reproduzirVidsOverlay.addEventListener("click", event => {
 		if (video.paused) {
     		video.play();
-			tela_clique.style.display = 'block';
 			console.log("Video Play");
     	} else {
     	   video.pause();
-		   tela_clique.style.display = 'none';
 		   console.log("Video Pause");
     	};
+
+		tela_clique.style.display = 'none';
 	});
 
 	/*
