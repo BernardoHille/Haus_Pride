@@ -100,11 +100,11 @@
     	};
 
 	if (video.paused) {
-		overlay_start.style.display = 'none';
+		overlay_start.style.display = 'block';
 
-    } else {
-	   overlay_start.style.display = 'block';
-	   
+    } else if (video.play) {
+	   overlay_start.style.display = 'none';
+
     };
 
 	});
