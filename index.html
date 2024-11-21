@@ -124,9 +124,17 @@
 		  bottom: 0;
 		  z-index: 9999; /* Specify a stack order in case you're using a different order for other elements */
 		  cursor: pointer; /* Add a pointer on hover */
-		  background-color: rgb(0,0,0);
+		  background-color: rgba(0,0,0,0.5);
 		  -webkit-tap-highlight-color: transparent;
 		} 
+		#botao_clique {
+		  position: fixed;       /* Fixa a imagem na tela */
+		  top: 50%;              /* Posiciona a imagem no centro vertical */
+		  left: 50%;             /* Posiciona a imagem no centro horizontal */
+		  transform: translate(-50%, -50%); /* Ajusta para centralizar totalmente */
+		  width:60%;
+		  max-width: 80px;
+		}
 		#overlay {
 		  position: fixed; /* Sit on top of the page content */
 		  display: block; /* Hidden by default */
@@ -140,7 +148,7 @@
 		  cursor: pointer; /* Add a pointer on hover */
 		  -webkit-tap-highlight-color: transparent;
 		} 
-		#text{
+		#text {
 		  position: absolute;
 		  top: 50%;
 		  left: 50%;
@@ -149,7 +157,7 @@
 		  transform: translate(-50%,-50%);
 		  -ms-transform: translate(-50%,-50%);
 		}
-		#logo{
+		#logo {
 		  position: fixed;       /* Deixa a imagem fixa na tela */
 		  width: 50%;            /* Tamanho da imagem */
 		  bottom: 15%;             /* Alinha a imagem na parte inferior */
@@ -157,7 +165,7 @@
 		  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
 		  max-width: 300px;
 		}
-		#scan_svg{
+		#scan_svg {
 		  position: fixed;       /* Fixa a imagem na tela */
 		  top: 35%;              /* Posiciona a imagem no centro vertical */
 		  left: 50%;             /* Posiciona a imagem no centro horizontal */
@@ -165,7 +173,7 @@
 		  width:90%;
 		  max-width: 500px;
 		}
-		#acessar_site{
+		#acessar_site {
 		  position: fixed;       /* Deixa a imagem fixa na tela */
 		  width: 80%;            /* Tamanho da imagem */
 		  bottom: 30%;           /* Alinha a imagem na parte inferior */
@@ -174,7 +182,7 @@
 		  z-index: 1000;
 		  max-width: 300px;
 		}
-		#feito_por_aeon{
+		#feito_por_aeon {
 		  position: fixed;       /* Deixa a imagem fixa na tela */
 		  width: 100%;            /* Tamanho da imagem */
 		  bottom: 1%;           /* Alinha a imagem na parte inferior */
@@ -186,7 +194,7 @@
 	</style>
   </head>
   <body>
-	<div id="overlay-start"></div>
+	<div id="overlay-start"><img src="clique.svg" id="botao_clique"></img></div>
 	<div id="overlay">
 	<!--
 	***
