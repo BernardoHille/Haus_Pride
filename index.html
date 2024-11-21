@@ -23,6 +23,7 @@
 	const video = document.getElementById('video'); // Constante de vídeo
 	const scan_overlay = document.getElementById('scan_svg'); // Constante do scan overlay
 	const overlay_start = document.getElementById('overlay-start');
+	const play_button = document.getElementById('botao_clique');
 	let lostTimeout;
 	
 	/*
@@ -101,9 +102,11 @@
 
 	if (video.paused) {
 		overlay_start.style.display = 'block';
+		play_button.style.display = 'block';
 
     } else if (video.play) {
 	   overlay_start.style.display = 'none';
+	   play_button.style.display = 'none';
 
     };
 
@@ -206,7 +209,7 @@
 	</style>
   </head>
   <body>
-	<div id="overlay-start" onclick="document.getElementById('overlay-start').style.display = 'none'; document.getElementById('botao_clique').style.display = 'none';"><img src="clique.svg" id="botao_clique"></img></div>
+	<div id="overlay-start" onclick="document.getElementById('overlay-start').style.display = 'none'; document.getElementById('botao_clique').style.display = 'none'; video.play();"><img src="clique.svg" id="botao_clique"></img></div>
 	<div id="overlay">
 	<!--
 	***
