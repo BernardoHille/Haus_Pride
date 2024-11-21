@@ -22,6 +22,7 @@
 	const unpauseButton = document.querySelector("#example-unpause-button");
 	const video = document.getElementById('video'); // Constante de vídeo
 	const scan_overlay = document.getElementById('scan_svg'); // Constante do scan overlay
+	const tela_clique = document.getElementById('tela_clique');
 	let lostTimeout;
 	
 	/*
@@ -96,6 +97,12 @@
 		   console.log("Video Pause");
     	};
 	});
+
+	if (video.paused) {
+		tela_clique.style.display = 'block';
+	} else {
+		tela_clique.style.display = 'none';
+	};
 
 	/*
 	***
@@ -213,10 +220,12 @@
     <a-scene mindar-image="imageTargetSrc: pride_targets.mind; filterMinCF:0.001; filterBeta: 0.001; warmupTolerance: 10; missTolerance: 10; uiScanning: #scanning-overlay;" device-orientation-permission-ui="enabled: false" xr-mode-ui="enabled: false">
 		<a-assets>
 			<video id="video" src="Pride_editado.mp4" autoPlay loop muted crossorigin="anonymous" playsInline></video>
+			<img src="tela_clique_reproduzir.png" id="tela_clique"></img>
 		</a-assets>
 		<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
 		<a-entity mindar-image-target="targetIndex: 0" id="example-target">
+		  <a-plane src="#tela_clique" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-plane>
 		  <a-video src="#video" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-video> <!-- Editar tamanho, escala e rotacao do texto! -->
 		</a-entity>
     </a-scene>
