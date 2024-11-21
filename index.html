@@ -98,6 +98,15 @@
 		   console.log("Video Pause");
 		   overlay_start.style.display = 'block';
     	};
+
+	if (video.paused) {
+		overlay_start.style.display = 'none';
+
+    } else {
+	   overlay_start.style.display = 'block';
+	   
+    };
+
 	});
 
 	/*
