@@ -81,6 +81,8 @@
 	  console.log("scan overlay block")
 	  lostTimeout = setTimeout(restartVideo, 7000);
 	  console.log("Timeout iniciado");
+	  overlay_start.style.display = 'none';
+	  play_button.style.display = 'none';
 	});
 
 	function restartVideo() {
