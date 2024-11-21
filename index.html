@@ -22,7 +22,7 @@
 	const unpauseButton = document.querySelector("#example-unpause-button");
 	const video = document.getElementById('video'); // Constante de vídeo
 	const scan_overlay = document.getElementById('scan_svg'); // Constante do scan overlay
-	const tela_clique = document.getElementById('tela_clique');
+	const tela_clique = document.getElementById('plane-tela-clique');
 	let lostTimeout;
 	
 	/*
@@ -221,7 +221,7 @@
 		<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
 		<a-entity mindar-image-target="targetIndex: 0" id="example-target">
-		  <a-plane src="#tela_clique" width="1.08" height="0.68" position="0 0 0.01" rotation="0 0 0"></a-plane>
+		  <a-plane src="#tela_clique" width="1.08" height="0.68" position="0 0 0.01" rotation="0 0 0" id="plane-tela-clique"></a-plane>
 		  <a-video src="#video" width="1.08" height="0.68" position="0 0 0" rotation="0 0 0"></a-video> <!-- Editar tamanho, escala e rotacao do texto! -->
 		</a-entity>
     </a-scene>
