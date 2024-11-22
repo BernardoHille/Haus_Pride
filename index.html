@@ -3,7 +3,7 @@
 	<title>Experiência de Realidade Aumentada Pride</title>
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1" />
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -128,6 +128,9 @@
 
 
       });
+
+
+	window.addEventListener("orientationchange", (event) => {location.reload(true)});
     </script>
 	<style>
 		#overlay-start {
@@ -208,6 +211,26 @@
 		  z-index: 1000;
 		  max-width: 180px;
 		}
+
+		@media screen and (orientation: landscape) {
+			#acessar_site{
+				position: fixed;       /* Deixa a imagem fixa na tela */
+		  		width: 80%;            /* Tamanho da imagem */
+		  		bottom: 10%;           /* Alinha a imagem na parte inferior */
+		  		left: 75%;             /* Centraliza horizontalmente */
+		  		z-index: 1000;
+		  		max-width: 200px;
+			}
+
+			#logo {
+				max-width: 180px;
+				left: 25%;  
+			}
+
+			#scan_svg {
+				max-width: 180px;
+			}
+    	}
 	</style>
   </head>
   <body>
