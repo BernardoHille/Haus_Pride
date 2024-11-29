@@ -223,15 +223,29 @@
 			}
 
 			#logo {
-				max-width: 180px;
-				left: 25%;
-				bottom: 11%;  
+				position: fixed;       /* Deixa a imagem fixa na tela */
+			  	width: 35%;            /* Tamanho da imagem */
+			  	bottom: 1%;             /* Alinha a imagem na parte inferior */
+			  	left: 13%;             /* Centraliza horizontalmente */
+			  	transform: translateX(-50%); /* Ajusta para centralizar totalmente */
+			  	max-width: 120px; 
 			}
 
 			#scan_svg {
 				max-width: 260px;
 			}
     	}
+
+		@media screen and (min-width: 480px) {
+			#logo {
+			  position: fixed;       /* Deixa a imagem fixa na tela */
+			  width: 35%;            /* Tamanho da imagem */
+			  bottom: 1%;             /* Alinha a imagem na parte inferior */
+			  left: 13%;             /* Centraliza horizontalmente */
+			  transform: translateX(-50%); /* Ajusta para centralizar totalmente */
+			  max-width: 120px;
+			}
+		}
 	</style>
   </head>
   <body>
